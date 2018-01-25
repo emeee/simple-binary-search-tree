@@ -59,9 +59,22 @@ class BST:
             raise('Empty tree')
 
     def _delete(self, key, currentNode):
+        #Simple delete
         if currentNode.isLeaf():
             if currentNode == currentNode.parent.getLeftChild():
                 currentNode.parent.setLeftChild = None
             else:
                 currentNode.parent.setRightChild = None
-        #TODO: Other cases
+        #Replace de node with its child
+        if currentNode.hasOneChild():
+            if currentNode.getLeftChild():
+                if currentNode.parent.getLeftChild() == currentNode:
+                    currentNode.parent.setLeftChild(currentNode.getLeftChild())
+                else:
+                    currentNode.parent.setRightChild(currentNode.getLeftChild())
+            else:
+                if currentNode.parent.getLeftChild() == currentNode:
+                    currentNode.parent.setLeftChild(currentNode.getRightChild())
+                else:
+                    currentNode.parent.setRightChild(currentNode.getRightChild())
+        #TODO: HasTwoChild

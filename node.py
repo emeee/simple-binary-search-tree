@@ -36,3 +36,9 @@ class Node:
 
     def isLeaf(self):
         return not(self.rightChild or self.leftChild)
+
+    def hasTwoChild(self):
+        return self.leftChild and self.rightChild
+
+    def hasOneChild(self):
+        return not(self.isLeaf() or self.hasTwoChild())
