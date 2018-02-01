@@ -78,3 +78,22 @@ class BST:
                 else:
                     currentNode.parent.setRightChild(currentNode.getRightChild())
         #TODO: HasTwoChild
+
+
+    def printPreOrder(self, node):
+        if node is not None:
+            print node.data
+            self.printPreOrder(node.left)
+            self.printPreOrder(node.left)
+
+    def printInOrder(self, node):
+        if node is not None:
+            self.printPreOrder(node.left)
+            print node.data
+            self.printPreOrder(node.left)
+
+    def printInOrder(self, node):
+        if node is not None:
+            self.printPreOrder(node.left)
+            self.printPreOrder(node.left)
+            print node.data
